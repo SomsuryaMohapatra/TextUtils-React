@@ -1,32 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+export default function About(props) {
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
+let myStyle = {
+  color: props.mode ==='dark'?'white':'#042743',
+  backgroundColor : props.mode ==='dark'?'rgb(36 74 104)':'white'
+};
+  // const [buttonText, setButtonText] = useState('Enable Dark Mode');
 
-  const [buttonText, setButtonText] = useState('Enable Dark Mode');
-
-  const handleDarkLightMode = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1px solid white",
-      });
-      setButtonText('Enable Light Mode')
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setButtonText('Enable Dark Mode');
-    }
-  };
+  // const handleDarkLightMode = () => {
+  //   if (myStyle.color === "black") {
+  //     setMyStyle({
+  //       color: "white",
+  //       backgroundColor: "black",
+  //       border: "1px solid white",
+  //     });
+  //     setButtonText('Enable Light Mode')
+  //   } else {
+  //     setMyStyle({
+  //       color: "black",
+  //       backgroundColor: "white",
+  //     });
+  //     setButtonText('Enable Dark Mode');
+  //   }
+  // };
 
   return (
-    <div className="container" style={myStyle}>
+    <div className="container" style={{color:props.mode==='dark'?'white':'#042743'}}>
       <h2>About Us</h2>
       <div className="accordion accordion-flush" id="accordionFlushExample">
         <div className="accordion-item">
@@ -40,7 +43,7 @@ export default function About() {
               aria-controls="flush-collapseOne"
               style={myStyle}
             >
-              Accordion Item #1
+              <strong>Analyze Your Text</strong>
             </button>
           </h2>
           <div
@@ -49,9 +52,7 @@ export default function About() {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body" style={myStyle}>
-              Placeholder content for this accordion, which is intended to
-              demonstrate the <code>.accordion-flush</code> className. This is
-              the first item's accordion body.
+              TextUtils gives you a way to analyze your text quickly and efficiently.
             </div>
           </div>
         </div>
@@ -66,7 +67,7 @@ export default function About() {
               aria-controls="flush-collapseTwo"
               style={myStyle}
             >
-              Accordion Item #2
+              <strong>Free To Use</strong>
             </button>
           </h2>
           <div
@@ -75,10 +76,9 @@ export default function About() {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body" style={myStyle}>
-              Placeholder content for this accordion, which is intended to
-              demonstrate the <code>.accordion-flush</code> className. This is
-              the second item's accordion body. Let's imagine this being filled
-              with some actual content.
+              TextUtils is a free character counter tool that provides instant character count word count statics
+              for a given text. TextUtils reports the number of words and characters . Thus it is suitable for writing
+              text with  word / character limit.
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function About() {
               aria-controls="flush-collapseThree"
               style={myStyle}
             >
-              Accordion Item #3
+              <strong>Browser Compatible</strong>
             </button>
           </h2>
           <div
@@ -102,19 +102,15 @@ export default function About() {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body" style={myStyle}>
-              Placeholder content for this accordion, which is intended to
-              demonstrate the <code>.accordion-flush</code> className. This is
-              the third item's accordion body. Nothing more exciting happening
-              here in terms of content, but just filling up the space to make it
-              look, at least at first glance, a bit more representative of how
-              this would look in a real-world application.
+              This word counter software works in any web browsers such as Chrome , Firefox , Internet Explorer etc.
+              It suits to count characters in facebook , blog , books , excel document , essays etc.
             </div>
           </div>
         </div>
       </div>
-      <button className="btn btn-primary my-2" onClick={handleDarkLightMode}>
+      {/* <button className="btn btn-primary my-2" onClick={handleDarkLightMode}>
         {buttonText}
-      </button>
+      </button> */}
     </div>
   );
 }

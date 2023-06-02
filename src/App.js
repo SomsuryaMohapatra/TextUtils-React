@@ -20,7 +20,8 @@ function App() {
     }, 1500);
   };
 
-  const handleModes = () => {
+  const handleModes = (cls) => {
+    document.body.classList.add('bg-'+cls);
     if (mode === "light") {
       setMode("dark");
       setSwitchText("Disbale Blue Dark Mode");
@@ -53,7 +54,7 @@ function App() {
         </div>
         <div className="container my-2">
           <Routes>
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About mode={mode}/>} />
             <Route
               exact path="/"
               element={
