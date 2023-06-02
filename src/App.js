@@ -22,7 +22,7 @@ function App() {
 
   const handleModes = () => {
     if (mode === "light") {
-      setMode("dark");
+      setMode("dark")
       setSwitchText("Disbale Blue Dark Mode");
       document.body.style.backgroundColor = "#042743";
       showAlert("Dark Mode has been enabled", "success");
